@@ -1,8 +1,13 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Replace the connection parameters with your MariaDB credentials and database name
-DATABASE_URL = 'mysql+mysqlconnector://root@localhost:3307/market.db'
+DATABASE_URL = os.environ.get('DATABASE_URL')
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 
