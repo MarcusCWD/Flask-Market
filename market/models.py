@@ -23,7 +23,7 @@ class User(Base):
 
     id = Column(Integer(), primary_key=True)
     username = Column(String(length=30), nullable=False, unique=True)
-    email_Address = Column(String(length=50), nullable=False, unique=True)
+    email_address = Column(String(length=50), nullable=False, unique=True)
     password = Column(String(length=60), nullable=False)
     budget = Column(Integer(), nullable=False, default=1000)
     items = relationship('Item', backref='owned_user', lazy=True)
